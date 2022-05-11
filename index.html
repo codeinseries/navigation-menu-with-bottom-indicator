@@ -1,0 +1,78 @@
+<!-- SOURCE CODE AND DETAILS IN THE DESCRIPTION -->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navigation menu</title>
+    
+    <!-- STYLE CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav>
+        <ul>
+            <li class="active">
+                <ion-icon name="home"></ion-icon>
+            </li>
+            <li>
+                <ion-icon name="heart"></ion-icon>
+            </li>
+            <li>
+                <ion-icon name="chatbox"></ion-icon>
+            </li>
+            <li>
+                <ion-icon name="settings"></ion-icon>
+            </li>
+            <li class="indicator">
+                <span></span>
+            </li>
+        </ul>
+    </nav>
+
+    <nav>
+        <ul>
+            <li class="active">
+                <p>Home</p>
+            </li>
+            <li>
+                <p>Likes</p>
+            </li>
+            <li>
+                <p>Chats</p>
+            </li>
+            <li>
+                <p>Settings</p>
+            </li>
+            <li class="indicator">
+                <span></span>
+            </li>
+        </ul>
+    </nav>
+
+    <script>
+
+        const navList = document.querySelectorAll('nav');
+        navList.forEach((nav) => {
+            const liList = nav.querySelectorAll('li');
+
+            liList.forEach((li) => {
+                li.addEventListener('click', (e) => {
+                    const actived = nav.querySelector('li.active');
+                    actived.classList.remove('active');
+
+                    li.classList.add('active');
+                });
+            });
+        });
+
+
+    </script>
+
+    <!-- IONICONS -->
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+</html>

@@ -1,0 +1,137 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap');
+
+:root {
+    --color-white:  #FFF;
+    --color-icon:   #EAE9EA;
+    --color-active: #50CE6D;
+    --cubic-bezier: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+*, ::before, ::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+}
+
+html, body {
+    scroll-behavior: smooth;
+    font-family: 'Poppins', sans-serif;
+    min-height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--color-active);
+}
+
+body {
+    padding: 10px;
+}
+
+nav + nav {
+    margin-top: 10px;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: var(--color-white);
+    width: 400px;
+    max-width: 100%;
+    border-radius: 30px;
+}
+
+nav ul {
+    --width: 25%;
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    width: 100%;
+    list-style: none;
+    position: relative;
+    overflow: hidden;
+}
+
+nav ul li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: var(--width);
+    height: 100%;
+    padding: 20px 0;
+    font-size: 24px;
+    line-height: 24px;
+
+    color: var(--color-icon);
+    cursor: pointer;
+    transition: .5s;
+}
+
+nav ul li.active {
+    color: var(--color-active);
+}
+
+nav ul li p {
+    font-size: 16px;
+}
+
+nav ul li.indicator {
+    position: absolute;
+    pointer-events: none;
+
+    left: calc(var(--width) * -1);
+    transition: .5s var(--cubic-bezier);
+}
+
+nav ul li.indicator span {
+    position: absolute;
+    bottom: -18px;
+    width: 26px;
+    height: 36px;
+    background-color: var(--color-active);
+    border-radius: 50%;
+}
+
+nav ul li.indicator span::before,
+nav ul li.indicator span::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 22px;
+    background-color: transparent;
+    bottom: 50%;
+    box-shadow: 0 10px 0 var(--color-active);
+}
+
+nav ul li.indicator span::before {
+    left: -15px;
+    border-bottom-right-radius: 20px;
+}
+
+nav ul li.indicator span::after {
+    right: -15px;
+    border-bottom-left-radius: 20px;
+}
+
+nav ul li:nth-child(1).active ~ .indicator {
+    left: calc(var(--width) * 0);
+}
+
+nav ul li:nth-child(2).active ~ .indicator {
+    left: calc(var(--width) * 1);
+}
+
+nav ul li:nth-child(3).active ~ .indicator {
+    left: calc(var(--width) * 2);
+}
+
+nav ul li:nth-child(4).active ~ .indicator {
+    left: calc(var(--width) * 3);
+}
